@@ -1,0 +1,100 @@
+$font-famaly: Helvetica, sans-serif;
+$primary-color: #333;
+$text-color: white;
+
+@mixin scores-style {
+  height: 50px;
+  width: 50px;
+  color: $text-color;
+  position: fixed;
+  font-size: 80px;
+}
+
+@mixin styleItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to top, rgb(181 151 151 / 53%), #cfc8c2);
+  @include styleItems;
+
+  .game-board {
+    height: 1046px;
+    width: 1563px;
+    background: $primary-color;
+    color: $text-color;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    display: none;
+  }
+
+  .player {
+    height: 110px;
+    width: 18px;
+    position: absolute;
+  }
+
+  .paddle-1 {
+    top: 40px;
+    left: 7%;
+    box-shadow: inset 0 0 18px green, inset 6px 0 15px #f3bad6;
+  }
+
+  .paddle-2 {
+    top: 40px;
+    right: 7%;
+    box-shadow: inset 0 0 18px red, inset 6px 0 15px #f3bad6;
+  }
+
+  .player-1-score {
+    @include scores-style;
+    left: 30vw;
+  }
+
+  .player-2-score {
+    @include scores-style;
+    left: 70vw;
+  }
+
+  .message {
+    position: fixed;
+    height: 10vh;
+    width: 25vw;
+    color: rgba(255, 0, 0, 0.526);
+    left: 40vw;
+    // margin: auto auto auto;
+  }
+}
+
+.reset {
+  @include styleItems;
+  background-color: #ff0d0d;
+  font-size: 20px;
+  width: 80px;
+  height: 50px;
+  border: 3px solid;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+}
